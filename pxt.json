@@ -1,0 +1,23 @@
+{
+    "name": "castles",
+    "description": "Build Castles",
+    "version": "0.0.1",
+    "dependencies": {
+        "core": "*",
+        "builder": "*"
+    },
+    "files": [
+        "docs/bean-stalk.md",
+        "docs/castle-tower.md",
+        "docs/castle-wall.md",
+        "docs/simple-castle.md",
+        "docs/sky-castle.md",
+        "castles.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "preferredEditor": "tsprj",
+    "icon": "icon.png"
+}
