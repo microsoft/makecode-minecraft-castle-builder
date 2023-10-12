@@ -10,20 +10,13 @@ namespace castles {
     //% blockId=castles_build_wall
     //% block="build castle wall|made of $blockType width $width length $length height $height" 
     //% width.defl=3
-    //% length.defl=27
-    //% height.defl=6
-    //% blockType.defl=Block.Cobblestone
-    //% expandableArgumentMode="toggle"
-    //% blockType.fieldEditor="gridpicker"
-    //% blockType.fieldOptions.width=340 blockType.fieldOptions.columns=8 blockType.fieldOptions.tooltips=true
-    //% blockType.fieldOptions.tooltipsXOffset="20" blockType.fieldOptions.tooltipsYOffset="-20"
-    //% blockType.fieldOptions.maxRows="8"
-    //% blockType.fieldOptions.hasSearchBar=true
-    //% blockType.fieldOptions.hideRect=true
     //% width.min=2 width.max=1000
+    //% length.defl=27
     //% length.min=4 length.max=1000
+    //% height.defl=6
     //% height.min=1 height.max=1000
-    //% inlineInputMode="external"
+    //% blockType.shadow=minecraftBlock
+    //% blockType.defl=Block.Cobblestone
     //% weight=340
     //% help=github:makecode-minecraft-castle-builder/docs/castle-wall
     export function buildCastleWall(width: number, length: number, height: number, blockType: Block) {
@@ -46,17 +39,11 @@ namespace castles {
     //% blockId=castles_build_tower
     //% block="build castle tower|made of $blockType width $width height $height"
     //% width.defl=5
-    //% height.defl=8
-    //% blockType.defl=Block.Cobblestone
-    //% expandableArgumentMode="toggle"
-    //% blockType.fieldEditor="gridpicker"
-    //% blockType.fieldOptions.width=340 blockType.fieldOptions.columns=8 blockType.fieldOptions.tooltips=true
-    //% blockType.fieldOptions.tooltipsXOffset="20" blockType.fieldOptions.tooltipsYOffset="-20"
-    //% blockType.fieldOptions.maxRows="8"
-    //% blockType.fieldOptions.hasSearchBar=true
-    //% blockType.fieldOptions.hideRect=true
     //% width.min=2 width.max=1000
+    //% height.defl=8
     //% height.min=1 height.max=1000
+    //% blockType.shadow=minecraftBlock
+    //% blockType.defl=Block.Cobblestone
     //% inlineInputMode="external"
     //% weight=350
     //% help=github:makecode-minecraft-castle-builder/docs/castle-tower
@@ -81,15 +68,8 @@ namespace castles {
      */
     //% blockId=castles_build_simple_castle
     //% block="build a simple castle made of $blockType"
-    //% blockType.fieldEditor="gridpicker"
-    //% blockType.fieldOptions.width=340 blockType.fieldOptions.columns=8 blockType.fieldOptions.tooltips=true
-    //% blockType.fieldOptions.tooltipsXOffset="20" blockType.fieldOptions.tooltipsYOffset="-20"
-    //% blockType.fieldOptions.maxRows="8"
-    //% blockType.fieldOptions.hasSearchBar=true
-    //% blockType.fieldOptions.hideRect=true
+    //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
-    //% width.defl=5
-    //% height.defl=8
     //% weight=250
     //% help=github:makecode-minecraft-castle-builder/docs/simple-castle
     export function buildSimpleCastle(blockType: Block) {
@@ -110,12 +90,7 @@ namespace castles {
      */
     //% blockId=castles_build_sky_castle
     //% block="build a castle in the sky made of $blockType || with beanstalk $beanstalk"
-    //% blockType.fieldEditor="gridpicker"
-    //% blockType.fieldOptions.width=340 blockType.fieldOptions.columns=8 blockType.fieldOptions.tooltips=true
-    //% blockType.fieldOptions.tooltipsXOffset="20" blockType.fieldOptions.tooltipsYOffset="-20"
-    //% blockType.fieldOptions.maxRows="8"
-    //% blockType.fieldOptions.hasSearchBar=true
-    //% blockType.fieldOptions.hideRect=true
+    //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
     //% beanstalk.defl=false
     //% weight=150
