@@ -19,7 +19,7 @@ namespace castles {
     //% blockType.defl=Block.Cobblestone
     //% weight=340
     //% help=github:makecode-minecraft-castle-builder/docs/castle-wall
-    export function buildCastleWall(width: number, length: number, height: number, blockType: Block) {
+    export function buildCastleWall(width: number, length: number, height: number, blockType: number) {
         builder.shift(-Math.floor(width / 2), 0, -Math.floor(width / 2))
         // build 2 walls from bottom to top (up to WallHeight)
         for (let index4 = 0; index4 < height - 1; index4++) {
@@ -47,7 +47,7 @@ namespace castles {
     //% inlineInputMode="external"
     //% weight=350
     //% help=github:makecode-minecraft-castle-builder/docs/castle-tower
-    export function buildCastleTower(width: number, height: number, blockType: Block) {
+    export function buildCastleTower(width: number, height: number, blockType: number) {
         builder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
         // build tower base
         buildTower(width, height, blockType);
@@ -72,7 +72,7 @@ namespace castles {
     //% blockType.defl=Block.Cobblestone
     //% weight=250
     //% help=github:makecode-minecraft-castle-builder/docs/simple-castle
-    export function buildSimpleCastle(blockType: Block) {
+    export function buildSimpleCastle(blockType: number) {
         let originalPlayerPosition = player.position()
         // move builder back to player position to allow repeat usage
         builder.teleportTo(originalPlayerPosition)
@@ -95,7 +95,7 @@ namespace castles {
     //% beanstalk.defl=false
     //% weight=150
     //% help=github:makecode-minecraft-castle-builder/docs/sky-castle
-    export function buildCastleInTheSky(blockType: Block, beanstalk?: boolean) {
+    export function buildCastleInTheSky(blockType: number, beanstalk?: boolean) {
         let originalPlayerPosition = player.position()
         builder.teleportTo(originalPlayerPosition)
         builder.face(getDirectionLeftOfPlayer())
@@ -144,7 +144,7 @@ namespace castles {
      * @param height the number of blocks high the tower will stand
      * @param blockType the Minecraft block the tower will be built with
      */
-    function buildTower(width: number, height: number, blockType: Block) {
+    function buildTower(width: number, height: number, blockType: number) {
         for (let index = 0; index <= height; index++) {
             drawRectangle(width, width, blockType);
             builder.move(UP, 1)
@@ -156,7 +156,7 @@ namespace castles {
      * Both building a castle in the sky and building a simple castle use the same logic
      * @param blockType the Minecraft block the castle will be built with
      */
-    function buildCastle(blockType: Block) {
+    function buildCastle(blockType: number) {
         for (let index = 0; index < 4; index++) {
             buildCastleTower(5, 8, blockType);
             buildCastleWall(3, 27, 6, blockType);
@@ -196,7 +196,7 @@ namespace castles {
      * @param blockType the Minecraft block the alternating line will be drawn with
      * @returns boolean, this is for the next line to be drawn in the rectangle, whether a block should be placed at the start of the next line
      */
-    function drawAlternatingLine(length: number, start: boolean, blockType: Block): boolean {
+    function drawAlternatingLine(length: number, start: boolean, blockType: number): boolean {
         let placeBlock = start;
         for (let index2 = 0; index2 <= length; index2 ++) {
             builder.move(FORWARD, 1);
