@@ -10,7 +10,11 @@ This extension will let you build castles! You can use these in storytelling, hi
 
 ## Contributors
 We want to express our gratitude to the following individuals who have contributed to this project:
-[@chplanty](https://github.com/chplanty) - Thanks for your valuable contributions! Your help has been greatly appreciated!
+- [@chplanty](https://github.com/chplanty)
+- [@xkoegler-m](https://github.com/xkoegler-m)
+- [@vcavendish](https://github.com/vcavendish)
+
+Thanks for your valuable contributions! Your help has been greatly appreciated!
 
 
 ## Contributing
