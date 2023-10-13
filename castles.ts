@@ -106,10 +106,11 @@ namespace castles {
      * @param blockType the Minecraft block the castle will be built with
      */
     //% blockId=castles_build_sky_castle
-    //% block="build a castle in the sky made of $blockType || with beanstalk $beanstalk||at position $position"
+    //% block="build a castle in the sky made of $blockType || at position $position with beanstalk $beanstalk "
     //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
     //% beanstalk.defl=false
+    //% position.shadow=minecraftCreatePosition
     //% weight=150
     //% help=github:makecode-minecraft-castle-builder/docs/sky-castle
     export function buildCastleInTheSky(blockType: number, beanstalk?: boolean, position?: Position) {
