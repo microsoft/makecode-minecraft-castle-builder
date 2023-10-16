@@ -17,7 +17,7 @@ namespace castles {
     //% height.min=1 height.max=1000
     //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
-    //% position.shadow=minecraftCreatePosition
+    //% position.shadow=minecraftCreatePositionCamera
     //% weight=340
     //% help=github:makecode-minecraft-castle-builder/docs/castle-wall
     export function buildCastleWall(
@@ -28,7 +28,11 @@ namespace castles {
         position?: Position
         ) {
         if (position) {
-            builder.shift(position.getValue(Axis.X) - Math.floor(width / 2), 0, position.getValue(Axis.Z) - Math.floor(width / 2))
+            builder.shift(
+                position.getValue(Axis.X) - Math.floor(width / 2),
+                position.getValue(Axis.Y),
+                position.getValue(Axis.Z) - Math.floor(width / 2)
+            )
         } else {
             builder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
         }
@@ -56,12 +60,16 @@ namespace castles {
     //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
     //% inlineInputMode="external"
-    //% position.shadow=minecraftCreatePosition
+    //% position.shadow=minecraftCreatePositionCamera
     //% weight=350
     //% help=github:makecode-minecraft-castle-builder/docs/castle-tower
     export function buildCastleTower(width: number, height: number, blockType: number, position?: Position) {
         if (position) {
-            builder.shift(position.getValue(Axis.X) - Math.floor(width / 2), 0, position.getValue(Axis.Z) - Math.floor(width / 2))
+            builder.shift(
+                position.getValue(Axis.X) - Math.floor(width / 2),
+                position.getValue(Axis.Y),
+                position.getValue(Axis.Z) - Math.floor(width / 2)
+            )
         } else {
             builder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
         }
@@ -86,7 +94,7 @@ namespace castles {
     //% block="build a simple castle made of $blockType||at position $position"
     //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
-    //% position.shadow=minecraftCreatePosition
+    //% position.shadow=minecraftCreatePositionCamera
     //% weight=250
     //% help=github:makecode-minecraft-castle-builder/docs/simple-castle
     export function buildSimpleCastle(blockType: number, position?: Position) {
@@ -110,7 +118,7 @@ namespace castles {
     //% blockType.shadow=minecraftBlock
     //% blockType.defl=Block.Cobblestone
     //% beanstalk.defl=false
-    //% position.shadow=minecraftCreatePosition
+    //% position.shadow=minecraftCreatePositionCamera
     //% weight=150
     //% help=github:makecode-minecraft-castle-builder/docs/sky-castle
     export function buildCastleInTheSky(blockType: number, beanstalk?: boolean, position?: Position) {
@@ -137,7 +145,7 @@ namespace castles {
      */
     //% blockId=castles_grow_bean_stalk
     //% block="grow a bean stalk with height $height at $position"
-    //% position.shadow=minecraftCreatePosition
+    //% position.shadow=minecraftCreatePositionCamera
     //% height.defl=20
     //% weight=145
     //% help=github:makecode-minecraft-castle-builder/docs/bean-stalk
