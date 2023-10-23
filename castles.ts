@@ -13,7 +13,7 @@ namespace castles {
     //% block="build castle wall|made of $blockType width $width length $length height $height||at position $position"
     //% width.defl=3
     //% width.min=2 width.max=1000
-    //% length.defl=27
+    //% length.defl=21
     //% length.min=4 length.max=1000
     //% height.defl=6
     //% height.min=1 height.max=1000
@@ -44,7 +44,7 @@ namespace castles {
             _castleBuilder.move(UP, 1)
         }
         drawAlternatingRectangle(length - 2, width - 2, blockType)
-        _castleBuilder.shift(length - Math.floor(width / 2) - 1, 1 - height, Math.floor(width / 2))
+        _castleBuilder.shift(length + 2, 1 - height, Math.floor(width / 2))
     }
 
     /**
@@ -84,8 +84,8 @@ namespace castles {
         // build battlement part
         drawAlternatingRectangle(width, width, blockType)
 
-        // mov builder back to center
-        _castleBuilder.shift(Math.floor(width / 2) + 1, 0 - (height + 4), Math.floor(width / 2) + 1)
+        // move builder back to center edge
+        _castleBuilder.shift(width + 2, 0 - (height + 4), Math.floor(width / 2) + 1)
     }
 
     /**
@@ -186,10 +186,8 @@ namespace castles {
      */
     function buildCastle(blockType: number) {
         for (let index = 0; index < 4; index++) {
-            player.say("tower");
             buildCastleTower(5, 8, blockType);
-            player.say("wall");
-            buildCastleWall(3, 27, 6, blockType);
+            buildCastleWall(3, 21, 6, blockType);
             _castleBuilder.turn(LEFT_TURN);
         }
     }
