@@ -1,5 +1,7 @@
 //% color="#AA278D" icon="\uf447" weight=54
 namespace castles {
+
+    const _castleBuilder = new builder.Builder();
     /**
      * Build a castle wall of specified width, length, and height out of blockType
      * @param width how thick the wall will be. If at least 3, there will be a gap for inner and outer walls
@@ -28,21 +30,21 @@ namespace castles {
         position?: Position
         ) {
         if (position) {
-            builder.shift(
+            _castleBuilder.shift(
                 position.getValue(Axis.X) - Math.floor(width / 2),
                 position.getValue(Axis.Y),
                 position.getValue(Axis.Z) - Math.floor(width / 2)
             )
         } else {
-            builder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
+            _castleBuilder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
         }
         // build 2 walls from bottom to top (up to WallHeight)
         for (let index4 = 0; index4 < height - 1; index4++) {
             drawRectangle(length, width, blockType)
-            builder.move(UP, 1)
+            _castleBuilder.move(UP, 1)
         }
         drawAlternatingRectangle(length - 2, width - 2, blockType)
-        builder.shift(length - Math.floor(width / 2) - 1, 1 - height, Math.floor(width / 2))
+        _castleBuilder.shift(length - Math.floor(width / 2) - 1, 1 - height, Math.floor(width / 2))
     }
 
     /**
@@ -65,25 +67,25 @@ namespace castles {
     //% help=github:makecode-minecraft-castle-builder/docs/castle-tower
     export function buildCastleTower(width: number, height: number, blockType: number, position?: Position) {
         if (position) {
-            builder.shift(
+            _castleBuilder.shift(
                 position.getValue(Axis.X) - Math.floor(width / 2),
                 position.getValue(Axis.Y),
                 position.getValue(Axis.Z) - Math.floor(width / 2)
             )
         } else {
-            builder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
+            _castleBuilder.shift(- Math.floor(width / 2), 0, - Math.floor(width / 2))
         }
         // build tower base
         buildTower(width, height, blockType);
         // build the look-out part, larger by 1 (the shift)
-        builder.shift(-1, 0, -1)
+        _castleBuilder.shift(-1, 0, -1)
         buildTower(width + 2, 2, blockType);
 
         // build battlement part
         drawAlternatingRectangle(width, width, blockType)
 
         // mov builder back to center
-        builder.shift(Math.floor(width / 2) + 1, 0 - (height + 4), Math.floor(width / 2) + 1)
+        _castleBuilder.shift(Math.floor(width / 2) + 1, 0 - (height + 4), Math.floor(width / 2) + 1)
     }
 
     /**
@@ -100,11 +102,11 @@ namespace castles {
     export function buildSimpleCastle(blockType: number, position?: Position) {
         let teleportPos = position ? position : player.position();
         // move builder back to player position to allow repeat usage
-        builder.teleportTo(teleportPos)
+        _castleBuilder.teleportTo(teleportPos)
         // start off facing left of the player
-        builder.face(getDirectionLeftOfPlayer())
+        _castleBuilder.face(getDirectionLeftOfPlayer())
         // shift away from player
-        builder.shift(-13, 0, -13)
+        _castleBuilder.shift(-13, 0, -13)
 
         buildCastle(blockType);
     }
@@ -123,14 +125,14 @@ namespace castles {
     //% help=github:makecode-minecraft-castle-builder/docs/sky-castle
     export function buildCastleInTheSky(blockType: number, beanstalk?: boolean, position?: Position) {
         let teleportPos = position ? position : player.position()
-        builder.teleportTo(teleportPos)
-        builder.face(getDirectionLeftOfPlayer())
-        builder.turn(RIGHT_TURN)
+        _castleBuilder.teleportTo(teleportPos)
+        _castleBuilder.face(getDirectionLeftOfPlayer())
+        _castleBuilder.turn(RIGHT_TURN)
 
-        builder.shift(24, 20, 0);
-        const cloudCenter = builder.position();
+        _castleBuilder.shift(24, 20, 0);
+        const cloudCenter = _castleBuilder.position();
         shapes.circle(Block.Wool, cloudCenter, 23, Axis.Y, ShapeOperation.Replace)
-        builder.shift(-13, 1, -13)
+        _castleBuilder.shift(-13, 1, -13)
 
         buildCastle(blockType);
         if (beanstalk) {
@@ -173,7 +175,7 @@ namespace castles {
     function buildTower(width: number, height: number, blockType: number) {
         for (let index = 0; index <= height; index++) {
             drawRectangle(width, width, blockType);
-            builder.move(UP, 1)
+            _castleBuilder.move(UP, 1)
         }
     }
 
@@ -184,9 +186,11 @@ namespace castles {
      */
     function buildCastle(blockType: number) {
         for (let index = 0; index < 4; index++) {
+            player.say("tower");
             buildCastleTower(5, 8, blockType);
+            player.say("wall");
             buildCastleWall(3, 27, 6, blockType);
-            builder.turn(LEFT_TURN);
+            _castleBuilder.turn(LEFT_TURN);
         }
     }
 
@@ -196,10 +200,10 @@ namespace castles {
      * @param blockType the Minecraft block the line will be built with
      */
     function drawLine(length: number, blockType: number) {
-        builder.mark()
-        builder.move(FORWARD, length - 1)
-        builder.tracePath(blockType)
-        builder.turn(LEFT_TURN)
+        _castleBuilder.mark()
+        _castleBuilder.move(FORWARD, length - 1)
+        _castleBuilder.tracePath(blockType)
+        _castleBuilder.turn(LEFT_TURN)
     }
 
     /**
@@ -225,9 +229,9 @@ namespace castles {
     function drawAlternatingLine(length: number, start: boolean, blockType: number): boolean {
         let placeBlock = start;
         for (let index2 = 0; index2 <= length; index2 ++) {
-            builder.move(FORWARD, 1);
+            _castleBuilder.move(FORWARD, 1);
             if (placeBlock) {
-                builder.place(blockType);
+                _castleBuilder.place(blockType);
             }
             placeBlock = !placeBlock
         }
@@ -243,9 +247,9 @@ namespace castles {
     function drawAlternatingRectangle(length: number, width: number, blockType: number) {
         for (let index3 = 0; index3 < 2; index3++) {
             let putBlock = drawAlternatingLine(length, false, blockType);
-            builder.turn(LEFT_TURN);
+            _castleBuilder.turn(LEFT_TURN);
             drawAlternatingLine(width, putBlock, blockType);
-            builder.turn(LEFT_TURN);
+            _castleBuilder.turn(LEFT_TURN);
         }
     }
 
