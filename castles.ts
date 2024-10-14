@@ -123,7 +123,7 @@ namespace castles {
     //% position.shadow=minecraftCreatePositionCamera
     //% weight=150
     //% help=github:makecode-minecraft-castle-builder/docs/sky-castle
-    export function buildCastleInTheSky(blockType: number, beanstalk?: boolean, position?: Position) {
+    export function buildCastleInTheSky(blockType: number, position?: Position, beanstalk?: boolean) {
         let teleportPos = position ? position : player.position()
         _castleBuilder.teleportTo(teleportPos)
         _castleBuilder.face(getDirectionLeftOfPlayer())
