@@ -1,7 +1,8 @@
 {
     "name": "makecode-minecraft-castle-builder",
+    "displayName": "Castles",
     "description": "An extension for building castles!",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "dependencies": {
         "core": "*",
         "builder": "*"
