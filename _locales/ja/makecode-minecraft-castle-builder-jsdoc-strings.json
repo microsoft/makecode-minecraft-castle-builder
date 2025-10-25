@@ -1,0 +1,18 @@
+{
+    "castles.buildCastleInTheSky": "指定された建材のシンプルな城郭を空中に建てる",
+    "castles.buildCastleInTheSky|param|blockType": "城郭の建材となるMinecraftのブロック",
+    "castles.buildCastleTower": "指定された建材、幅、高さの正四角柱状の塔(側防塔)を建てる",
+    "castles.buildCastleTower|param|blockType": "塔の建材となるMinecraftのブロック",
+    "castles.buildCastleTower|param|height": "塔の高さ",
+    "castles.buildCastleTower|param|width": "塔の幅",
+    "castles.buildCastleWall": "指定された建材、横幅、奥行、高さの壁(幕壁)を建てる",
+    "castles.buildCastleWall|param|blockType": "壁の建材となるMinecraftのブロック",
+    "castles.buildCastleWall|param|height": "壁の高さ",
+    "castles.buildCastleWall|param|length": "壁の奥行",
+    "castles.buildCastleWall|param|width": "壁の横幅",
+    "castles.buildSimpleCastle": "指定された建材の壁(幕壁)と塔(側防塔)が4つずつあるシンプルな城郭をプレイヤーの周りに建てる",
+    "castles.buildSimpleCastle|param|blockType": "城郭の建材となるMinecraftのブロック",
+    "castles.growBeanStalk": "空中の城に届くはしごを伸ばす",
+    "castles.growBeanStalk|param|height": "はしごの高さ",
+    "castles.growBeanStalk|param|position": "はしごの位置"
+}

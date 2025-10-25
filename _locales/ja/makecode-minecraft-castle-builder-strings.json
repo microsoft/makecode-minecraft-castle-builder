@@ -1,0 +1,9 @@
+{
+    "castles.buildCastleInTheSky|block": "空中に城郭を$blockTypeを建材にして建てる||位置$positionはしご$beanstalk",
+    "castles.buildCastleTower|block": "塔を建てる|建材$blockType|幅$width|高さ$height||位置$position",
+    "castles.buildCastleWall|block": "壁を建てる|建材$blockType|横幅$width|奥行$length|高さ$height||位置$position",
+    "castles.buildSimpleCastle|block": "シンプルな城郭を$blockTypeを建材にして建てる||位置$position",
+    "castles.growBeanStalk|block": "はしごを$positionに$heightの高さで空に伸ばす",
+    "castles|block": "城郭",
+    "{id:catogory}Castles": "城郭"
+}
